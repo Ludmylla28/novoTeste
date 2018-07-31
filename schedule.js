@@ -32,7 +32,7 @@ var fimPackage = '../testeschedule/package.json';
 
 LLen = lista.length;
 
-var j = schedule.scheduleJob('30 * * * *', function () {
+var j = schedule.scheduleJob('48 * * * *', function () {
   for (i = 0; i < LLen; i++) {
     shell.cp('-R', lista[i], fim);
   }
@@ -51,11 +51,14 @@ var j = schedule.scheduleJob('30 * * * *', function () {
     console.log('package.json copiado');
   })
 });
- if (j.code !== 0){
-  if (shell.exec('git add .').code !== 0) {
+if (j.code !== 0) {
+  if (shell.exec('cd ../testeschedule').code !== 0) {
     shell.echo('Error: Git commit failed');
     shell.exit(1);
-  } else if (shell.exec('git commit -am "Agora vai de verdade"').code !== 0) {
+  } else if (shell.exec('git add .').code !== 0) {
+    shell.echo('Error: Git commit failed');
+    shell.exit(1);
+  } else if (shell.exec('git commit -am "testando 123"').code !== 0) {
     shell.echo('Error: Git commit failed');
     shell.exit(1);
   } else if (shell.exec('git push').code !== 0) {
