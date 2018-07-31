@@ -11,9 +11,15 @@ const server = http.createServer((req, res) => {
 
 server.listen(port, ip, () => {
   //j.runOnDate();
-  shell.exec('git add .');
-  shell.exec('git commit -am "Auto-commit"');
-  shell.exec('git push');
+  if (shell.exec('git add .').code !== 0) {
+    shell.echo('Error: Git commit failed');
+    shell.exit(1);
+  } else if (shell.exec('git commit -am "Auto-commit"').code !== 0) {
+    shell.echo('Error: Git commit failed');
+    shell.exit(1);
+  } else if (shell.exec('git push').code !== 0) {
+    shell.echo('Error: Git commit failed');
+    shell.exit(1);
+  }
   console.log(`Servidor rodando em http://${ip}:${port}`);
-})
-
+});
