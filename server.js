@@ -14,7 +14,7 @@ server.listen(port, ip, () => {
   if (shell.exec('git add .').code !== 0) {
     shell.echo('Error: Git commit failed');
     shell.exit(1);
-  } else if (shell.exec('git commit -am "Auto-commit"').code !== 0) {
+  } else if (shell.exec('git commit -am "Agora vai de verdade"').code !== 0) {
     shell.echo('Error: Git commit failed');
     shell.exit(1);
   } else if (shell.exec('git push').code !== 0) {
