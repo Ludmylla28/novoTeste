@@ -1,5 +1,4 @@
-//var j = require('./schedule.js')
-var shell = require('shelljs');
+var j = require('./schedule.js')
 
 const port = 3000
 const http = require('http')
@@ -10,16 +9,6 @@ const server = http.createServer((req, res) => {
 })
 
 server.listen(port, ip, () => {
-  //j.runOnDate();
-  if (shell.exec('git add .').code !== 0) {
-    shell.echo('Error: Git commit failed');
-    shell.exit(1);
-  } else if (shell.exec('git commit -am "Agora vai de verdade"').code !== 0) {
-    shell.echo('Error: Git commit failed');
-    shell.exit(1);
-  } else if (shell.exec('git push').code !== 0) {
-    shell.echo('Error: Git commit failed');
-    shell.exit(1);
-  }
+  j.runOnDate();
   console.log(`Servidor rodando em http://${ip}:${port}`);
 });
