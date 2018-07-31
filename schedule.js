@@ -32,7 +32,7 @@ var fimPackage = '../testeschedule/package.json';
 
 LLen = lista.length;
 
-var j = schedule.scheduleJob('27 * * * *', function () {
+var j = schedule.scheduleJob('30 * * * *', function () {
   for (i = 0; i < LLen; i++) {
     shell.cp('-R', lista[i], fim);
   }
