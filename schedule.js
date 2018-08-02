@@ -32,7 +32,7 @@ var fimPackage = '../testeschedule/package.json';
 
 LLen = lista.length;
 
-var j = schedule.scheduleJob('48 * * * *', function () {
+var j = schedule.scheduleJob('04 * * * *', function () {
   for (i = 0; i < LLen; i++) {
     shell.cp('-R', lista[i], fim);
   }
@@ -49,9 +49,7 @@ var j = schedule.scheduleJob('48 * * * *', function () {
   fs.copyFile(package, fimPackage, (err) => {
     if (err) throw err;
     console.log('package.json not copied');
-  })
-});
-if (j.code !== 0) {
+  });
   if (shell.exec('cd ../testeschedule').code !== 0) {
     shell.echo('Error: folder change failed');
     shell.exit(1);console.log('folder change');
@@ -64,8 +62,7 @@ if (j.code !== 0) {
   } else if (shell.exec('git push').code !== 0) {
     shell.echo('Error: Git push failed');
     shell.exit(1);console.log('push done');
-  }
-}
-console.log('I finished');
+  }console.log('I finished')
+});
 
 module.exports = j; 
