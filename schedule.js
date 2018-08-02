@@ -32,7 +32,7 @@ var fimPackage = '../testeschedule/package.json';
 
 LLen = lista.length;
 
-var j = schedule.scheduleJob('38 * * * *', function () {
+var j = schedule.scheduleJob('49 * * * *', function () {
   for (i = 0; i < LLen; i++) {
     shell.cp('-R', lista[i], fim);
   }console.log('primeira etapa');
@@ -52,10 +52,8 @@ var j = schedule.scheduleJob('38 * * * *', function () {
     console.log('.env not copied');
   });console.log('segunda etapa');
 
-  if (shell.exec('cd ../testeschedule').code !== 0) {
-    shell.echo('Error: folder change failed');
-    shell.exit(1);
-  }else if (shell.exec('git add .').code !== 0) {
+  shell.cd('../testeschedule')
+  if (shell.exec('git add .').code !== 0) {
     shell.echo('Error: Git add failed');
     shell.exit(1);
   } else if (shell.exec('git commit -am "testando 123"').code !== 0) {
@@ -67,4 +65,4 @@ var j = schedule.scheduleJob('38 * * * *', function () {
   }console.log('I finished')
 });
 
-module.exports = j; 
+//module.exports = j; 
