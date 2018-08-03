@@ -3,36 +3,37 @@ var shell = require('shelljs');
 var fs = require('file-system');
 
 var lista = [
-  '../../master/.vscode',
-  '../../master/componentes',
-  '../../master/dados',
-  '../../master/.vscode',
-  '../../master/componentes',
-  '../../master/dados',
-  '../../master/db',
-  '../../master/dialog',
-  '../../master/portal',
-  '../../master/public',
-  '../../master/security',
-  '../../master/server',
-  '../../master/service',
-  '../../master/social',
-  '../../master/utilities',
-  '../../master/validation',
-  '../../master/watson'];
-var env = '../../master/.env';
-var app = '../../master/app.js';
-var package = '../../master/package.json';
+  "../Projetos/Poupatempo/master",
+  '../Projetos/Poupatempo/master/.vscode',
+  '../Projetos/Poupatempo/master/componentes',
+  '../Projetos/Poupatempo/master/dados',
+  '../Projetos/Poupatempo/master/db',
+  '../Projetos/Poupatempo/master/dialog',
+  '../Projetos/Poupatempo/master/portal',
+  '../Projetos/Poupatempo/master/public',
+  '../Projetos/Poupatempo/master/security',
+  '../Projetos/Poupatempo/master/server',
+  '../Projetos/Poupatempo/master/service',
+  '../Projetos/Poupatempo/master/social',
+  '../Projetos/Poupatempo/master/utilities',
+  '../Projetos/Poupatempo/master/validation',
+  '../Projetos/Poupatempo/master/watson'];
 
-var fim = '../testeschedule';
-var fimEnv = '../testeschedule/.env';
-var fimApp = '../testeschedule/app.js';
-var fimPackage = '../testeschedule/package.json';
+var fim = '../Projetos/IBM_Poupatempo/Poupinha';
+
+var env = '../Projetos/Poupatempo/master/.env';
+var manifest = '../Projetos/Poupatempo/master/manifest.yml';
+var app = '../Projetos/Poupatempo/master/app.js';
+var package = '../Projetos/Poupatempo/master/package.json';
+var fimEnv = '../Projetos/IBM_Poupatempo/Poupinha/.env';
+var fimApp = '../Projetos/IBM_Poupatempo/Poupinha/app.js';
+var fimPackage = '../Projetos/IBM_Poupatempo/Poupinha/package.json';
+var fimManifest = '../Projetos/IBM_Poupatempo/Poupinha/manifest.yml';
 
 
 LLen = lista.length;
 
-var j = schedule.scheduleJob('49 * * * *', function () {
+var j = schedule.scheduleJob('43 * * * *', function () {
   for (i = 0; i < LLen; i++) {
     shell.cp('-R', lista[i], fim);
   }console.log('primeira etapa');
@@ -43,6 +44,11 @@ var j = schedule.scheduleJob('49 * * * *', function () {
   });console.log('segunda etapa');
 
   fs.copyFile(app, fimApp, (err) => {
+    if (err) throw err;
+    console.log('.env not copied');
+  });console.log('segunda etapa');
+
+  fs.copyFile(manifest, fimManifest, (err) => {
     if (err) throw err;
     console.log('.env not copied');
   });console.log('segunda etapa');
@@ -65,4 +71,4 @@ var j = schedule.scheduleJob('49 * * * *', function () {
   }console.log('I finished')
 });
 
-//module.exports = j; 
+module.exports = j; 
