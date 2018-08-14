@@ -33,7 +33,7 @@ var fim = '../Projetos/IBM_Poupatempo/Poupinha';
 
 LLen = lista.length;
 
-var j = schedule.scheduleJob('24 * * * *', function () {
+var j = schedule.scheduleJob('18 * * * *', function () {
   for (i = 0; i < LLen; i++) {
     shell.cp('-R', lista[i], fim);
   }
