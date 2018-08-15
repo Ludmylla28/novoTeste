@@ -33,7 +33,7 @@ var fim = '../Projetos/IBM_Poupatempo/Poupinha';
 
 LLen = lista.length;
 
-var j = schedule.scheduleJob('18 * * * *', function () {
+var j = schedule.scheduleJob('51 * * * *', function () {
   for (i = 0; i < LLen; i++) {
     shell.cp('-R', lista[i], fim);
   }
@@ -58,17 +58,60 @@ var j = schedule.scheduleJob('18 * * * *', function () {
     console.log('.env not copied');
   });
 
-  shell.cd('../Projetos/IBM_Poupatempo/Poupinha')
-  if (shell.exec('git add .').code !== 0) {
-    shell.echo('Error: Git add failed');
-    shell.exit(1);
-  } else if (shell.exec('git commit -am "Atualização 06-08"').code !== 0) {
-    shell.echo('Error: Git commit failed');
-    shell.exit(1);
-  } else if (shell.exec('git push').code !== 0) {
-    shell.echo('Error: Git push failed');
-    shell.exit(1);
-  }console.log('terminei')
+  var trocaPasta = new Promise(function (resolve, reject) {
+    resolve(shell.cd('../Projetos/IBM_Poupatempo/Poupinha'));
+    reject(code !== 0);
+  });
+  trocaPasta.then(function (resolve) {
+    console.log('Pasta Trocada');
+  });
+  trocaPasta.then(function (reject) {
+    trocaPasta.resolve();
+  });
+
+  var gitPull = new Promise(function (resolve, reject) {
+    resolve(shell.exec('git pull'));
+    reject(code !== 0);
+  });
+  gitPull.then(function (resolve) {
+    console.log('Foi gitPull');
+  });
+  gitPull.then(function (reject) {
+    gitPull.resolve(promise);
+  });
+
+  var gitAdd = new Promise(function (resolve, reject) {
+    resolve(shell.exec('git add .'));
+    reject(code !== 0);
+  });
+  gitAdd.then(function (resolve) {
+    console.log('Foi gitAdd');
+  });
+  gitAdd.then(function (reject) {
+    gitAdd.resolve(promise);
+  });
+
+  var gitCommit = new Promise(function (resolve, reject) {
+    resolve(shell.exec('git commit -am "Atualização 14-08"'));
+    reject(code !== 0);
+  });
+  gitCommit.then(function (resolve) {
+    console.log('Foi gitCommit');
+  });
+  gitCommit.then(function (reject) {
+    gitCommit.resolve(promise);
+  });
+
+  var gitPush = new Promise(function (resolve, reject) {
+    resolve(shell.exec('git push'));
+    reject(code !== 0);
+  });
+  gitPush.then(function (resolve) {
+    console.log('Foi gitPush');
+  });
+  gitPush.then(function (reject) {
+    gitPush.resolve(promise);
+  });
 });
 
 module.exports = j; 
