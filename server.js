@@ -12,6 +12,4 @@ const server = http.createServer((req, res) => {
 server.listen(port, ip, () => {
   j.runOnDate();
   console.log(`Server running on http://${ip}:${port}`);
-});
-
-shell.exit(1);
+}); shell.exit(1)
