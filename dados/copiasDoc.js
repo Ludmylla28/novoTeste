@@ -15,7 +15,7 @@ var lista = [
     '../../Poupatempo/master/social',
     '../../Poupatempo/master/utilities',
     '../../Poupatempo/master/validation',
-    '../../Poupatempo/master/watson'];
+    '../../Poupatempo/master/watson',]
 
 
 var env = '../../Poupatempo/master/.env';

@@ -22,7 +22,7 @@ git.gitAdd = function () {
 
 git.gitCommit = function () {
     return new Promise((resolve, reject) => {
-        shell.exec('git commit -am "Atualização 28-08"');
+        shell.exec('git commit -am "Atualização 19-09"');
         resolve('Sucessfull gitCommit');
     }).catch(error => {
         reject('Error Pasta gitCommit');
