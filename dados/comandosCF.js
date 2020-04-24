@@ -4,7 +4,7 @@ var cf = {};
 
 cf.cfLogin = function () {
     return new Promise((resolve, reject) => {
-        shell.exec('cf login -u (email) -p (senha) -o Poupatempo_Chatbot -s Desenvolvimento');
+        shell.exec('cf login -u (email) -p (senha) -o (organização) -s (espaço)');
         resolve('Sucessfull cf login');
     }).catch(error => {
         reject('Error cf login');
