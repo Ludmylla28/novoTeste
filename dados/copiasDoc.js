@@ -2,32 +2,32 @@ var shell = require('shelljs');
 var fs = require('file-system');
 
 var lista = [
-    '../../Poupatempo/master/.vscode',
-    '../../Poupatempo/master/componentes',
-    '../../Poupatempo/master/dados',
-    '../../Poupatempo/master/db',
-    '../../Poupatempo/master/dialog',
-    '../../Poupatempo/master/portal',
-    '../../Poupatempo/master/public',
-    '../../Poupatempo/master/security',
-    '../../Poupatempo/master/server',
-    '../../Poupatempo/master/service',
-    '../../Poupatempo/master/social',
-    '../../Poupatempo/master/utilities',
-    '../../Poupatempo/master/validation',
-    '../../Poupatempo/master/watson',]
+    '../../../master/.vscode',
+    '../../../master/componentes',
+    '../../../master/dados',
+    '../../../master/db',
+    '../../../master/dialog',
+    '../../../master/portal',
+    '../../../master/public',
+    '../../../master/security',
+    '../../../master/server',
+    '../../../master/service',
+    '../../../master/social',
+    '../../../master/utilities',
+    '../../../master/validation',
+    '../../../master/watson',]
 
 
-var env = '../../Poupatempo/master/.env';
-var manifest = '../../Poupatempo/master/manifest.yml';
-var app = '../../Poupatempo/master/app.js';
-var package = '../../Poupatempo/master/package.json';
+var env = '../../../master/.env';
+var manifest = '../../../master/manifest.yml';
+var app = '../../../master/app.js';
+var package = '../../../master/package.json';
 
-var fimEnv = '../../IBM_Poupatempo/Poupinha/.env';
-var fimApp = '../../IBM_Poupatempo/Poupinha/app.js';
-var fimPackage = '../../IBM_Poupatempo/Poupinha/package.json';
-var fimManifest = '../../IBM_Poupatempo/Poupinha/manifest.yml';
-var fim = '../../IBM_Poupatempo/Poupinha';
+var fimEnv = '../../../Poupinha/.env';
+var fimApp = '../../../Poupinha/app.js';
+var fimPackage = '../../../Poupinha/package.json';
+var fimManifest = '../../../Poupinha/manifest.yml';
+var fim = '../../../Poupinha';
 
 LLen = lista.length;
 
